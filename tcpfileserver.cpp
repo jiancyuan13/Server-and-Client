@@ -62,12 +62,12 @@ TcpFileServer::TcpFileServer(QWidget *parent)
     setLayout(mainLayout);
     // 信號與槽的連接
     connect(openButton, SIGNAL(clicked()), this, SLOT(openFile()));
-    connect(startButton, SIGNAL(clicked()), this, SLOT(startSender()));  // 修改為 startSender()
+    connect(startButton, SIGNAL(clicked()), this, SLOT(startSender()));  
     connect(&tcpClient, SIGNAL(connected()), this, SLOT(startTransfer()));
     connect(&tcpClient, SIGNAL(bytesWritten(qint64)), this, SLOT(updateClientProgress(qint64)));
     connect(quitButton, SIGNAL(clicked()), this, SLOT(close()));
 
-    connect(startButton1, SIGNAL(clicked()), this, SLOT(startServer()));  // 修改為 startServer()
+    connect(startButton1, SIGNAL(clicked()), this, SLOT(startServer()));  
     connect(quitButton1, SIGNAL(clicked()), this, SLOT(close()));
     connect(&tcpServer, SIGNAL(newConnection()), this, SLOT(acceptConnection()));
     connect(&tcpServer, SIGNAL(acceptError(QAbstractSocket::SocketError)),this,
